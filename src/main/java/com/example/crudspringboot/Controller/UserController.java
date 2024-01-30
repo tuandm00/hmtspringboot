@@ -5,6 +5,7 @@ import com.example.crudspringboot.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +33,12 @@ public class UserController {
     public ResponseEntity<User> getUserById(int userid){
         User getSingleUserById = userService.getUserById(userid);
         return ResponseEntity.ok(getSingleUserById);
+    }
+
+    @PostMapping("login-user")
+    public ResponseEntity<User> loginUser(String username, String password){
+        User getUserInfo = userService.loginUser(username, password);
+        return ResponseEntity.ok(getUserInfo);
     }
 
 }
