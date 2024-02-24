@@ -1,5 +1,6 @@
 package com.example.crudspringboot.Models;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.*;
 
 @Entity
@@ -7,6 +8,7 @@ public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "DishId", nullable = false)
+    @Hidden
     private Integer id;
 
     @Column(name = "Name", length = 50)
